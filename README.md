@@ -6,9 +6,9 @@
 
 - [ iOS, Android, Web ]
 - Typescript
-- Redux, Rudux-saga, Redux-toolkit
+- Redux, Redux-saga, Redux-toolkit
 - Storybook
-- husky, lint-stage
+- husky, lint-staged
 - Jest
 - Eslint, Prettier
 
