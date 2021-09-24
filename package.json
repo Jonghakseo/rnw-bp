@@ -7,19 +7,18 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "node scripts/set-env.js dev && react-native start",
-    "start:dev": "node scripts/set-env.js dev && react-native start",
+    "start:staging": "node scripts/set-env.js staging && react-native start",
     "start:pro": "node scripts/set-env.js production && react-native start",
     "web": "SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "build": "react-scripts build",
     "test": "jest --forceExit --coverage --detectOpenHandles",
-    "test-update": "jest -u --forceExit --coverage --detectOpenHandles",
-    "watch": "jest --forceExit --detectOpenHandles --watchAll",
+    "test:update": "jest -u --forceExit --coverage --detectOpenHandles",
+    "test:watch": "jest --forceExit --detectOpenHandles --watchAll",
     "lint": "tsc && eslint --ext .tsx --ext .ts src/ --fix",
     "format": "prettier --write ./src",
     "reset": "watchman watch-del-all; rm -rf /tmp/metro-bundler-cache-*; rm -rf ./android/build; rm -rf ./android/.gradle; rm -rf ./android/app/build; rm -rf ~/Library/Developer/Xcode/DerivedData; rm -rf /tmp/haste-map-react-native-packager-*; rm -rf ./ios/build; jest --clearCache; cd ios; pod install --repo-update; cd ..; npx jetify; cd android; ./gradlew clean; cd ..; react-native start --reset-cache",
-    "storybook:web": "./node_modules/@storybook/react/bin/index.js -p 7007 --config-dir .storybook -s public",
     "storybook": "start-storybook -p 7007 --config-dir ./.storybook",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook --config-dir ./.storybook"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
