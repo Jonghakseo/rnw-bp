@@ -8,6 +8,7 @@
 - Typescript
 - Redux, Redux-saga, Redux-toolkit
 - Axios
+- Styled-Components
 - Storybook
 - husky, lint-staged
 - Jest
