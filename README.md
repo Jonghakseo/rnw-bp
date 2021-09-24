@@ -7,6 +7,7 @@
 - [ iOS, Android, Web ]
 - Typescript
 - Redux, Redux-saga, Redux-toolkit
+- Axios
 - Storybook
 - husky, lint-staged
 - Jest
@@ -48,6 +49,12 @@ yarn web
 ### Storybook
 ```sh
 yarn storybook
+```
+### Env change
+```sh
+yarn env:dev
+yarn env:staging
+yarn env:pro
 ```
 
 ### SourceTree with Husky
