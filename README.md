@@ -1,14 +1,14 @@
-# SK Gas H2 app
+# React-Native-Web boilerplate
 
 ### Featuring
 
-- iOS
-- Android
-- Web
+- [ iOS, Android, Web ]
 - Typescript
-- React-Navigation
+- Redux, Rudux-saga, Redux-toolkit
+- Storybook
+- husky, lint-stage
 - Jest
-- Eslint
+- Eslint, Prettier
 
 
 ### Install dependencies
@@ -38,16 +38,16 @@ yarn add -D husky
 ### Run
 
 ```sh
+yarn start
 yarn ios
-```
-
-```sh
 yarn android
-```
-
-```sh
 yarn web
 ```
+### Storybook
+```sh
+yarn storybook
+```
+
 ### SourceTree with Husky
 > install sourcetree cli and...
 ```sh
@@ -58,4 +58,6 @@ stree
 
 ```sh
 yarn test
+yarn test:watch
+yarn test:update
 ```
