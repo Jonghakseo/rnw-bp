@@ -1,0 +1,122 @@
+{
+  "name": "sk-gas-h2-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "node scripts/set-env.js dev && react-native start",
+    "start:dev": "node scripts/set-env.js dev && react-native start",
+    "start:pro": "node scripts/set-env.js production && react-native start",
+    "web": "SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest --forceExit --coverage --detectOpenHandles",
+    "test-update": "jest -u --forceExit --coverage --detectOpenHandles",
+    "watch": "jest --forceExit --detectOpenHandles --watchAll",
+    "lint": "tsc && eslint --ext .tsx --ext .ts src/ --fix",
+    "format": "prettier --write ./src",
+    "reset": "watchman watch-del-all; rm -rf /tmp/metro-bundler-cache-*; rm -rf ./android/build; rm -rf ./android/.gradle; rm -rf ./android/app/build; rm -rf ~/Library/Developer/Xcode/DerivedData; rm -rf /tmp/haste-map-react-native-packager-*; rm -rf ./ios/build; jest --clearCache; cd ios; pod install --repo-update; cd ..; npx jetify; cd android; ./gradlew clean; cd ..; react-native start --reset-cache",
+    "storybook:web": "./node_modules/@storybook/react/bin/index.js -p 7007 --config-dir .storybook -s public",
+    "storybook": "start-storybook -p 7007 --config-dir ./.storybook",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.9.2",
+    "@react-navigation/stack": "^5.14.2",
+    "@reduxjs/toolkit": "^1.6.1",
+    "axios": "^0.21.4",
+    "babel-preset-react-native": "^4.0.1",
+    "qs": "^6.10.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-native": "0.63.4",
+    "react-native-gesture-handler": "^1.10.1",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-screens": "^2.17.1",
+    "react-native-web": "^0.15.0",
+    "react-redux": "^7.2.5",
+    "react-scripts": "^4.0.2",
+    "redux": "^4.1.1",
+    "redux-saga": "^1.1.3",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/runtime": "^7.12.18",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@storybook/addon-actions": "^5.3",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^5.3",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.25",
+    "@storybook/cli": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@types/jest": "^26.0.20",
+    "@types/qs": "^6.9.7",
+    "@types/react": "^17.0.2",
+    "@types/react-native": "^0.63.50",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/redux-saga": "^0.10.5",
+    "@types/styled-components": "^5.1.14",
+    "@types/styled-components-react-native": "^5.1.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-react-native-web": "^0.17.1",
+    "babel-plugin-styled-components": "^1.13.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.25.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "metro-react-native-babel-preset": "^0.65.1",
+    "prettier": "^2.4.1",
+    "react-native-svg": "^12.1.1",
+    "react-test-renderer": "16.14.0",
+    "redux-devtools-extension": "^2.13.9",
+    "typescript": "^4.0.5"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.(bmp|gif|jpg|jpeg|mp4|png|psd|svg|webp|ttf|otf|m4v|mov|mp4|mpeg|mpg|webm|aac|aiff|caf|m4a|mp3|wav|html|pdf|obj)$": "<rootDir>/src/mocks/Files/index.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|@react-native-community|@react-navigation)"
+    ],
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "<rootDir>/src/mocks/Setup/index.ts"
+    ]
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,tsx}": [
+      "yarn lint"
+    ],
+    "./src/**": [
+      "yarn format"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+**/__tests__/
+src/mocks/
+storybook/
+scripts/
+src/testHelper/
+@types/

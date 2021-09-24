@@ -1,0 +1,5 @@
+{
+  "ENV": "staging",
+  "API_URL":"http://api.example.com",
+  "API_TOKEN":"example"
+}
